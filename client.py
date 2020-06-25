@@ -19,6 +19,9 @@ def recv_data():  # 接收并显示服务端发送的信息
                 user_listbox.insert("end", item)
         elif len(tmp) == 3 and tmp[2] == "退出":
             usr_name_list.remove(tmp[1])
+            user_listbox.delete(0, "end")
+            for item in usr_name_list:
+                user_listbox.insert("end", item)
 
         if data[0] == usr:
             txt_msglist.insert("end", data[1] + "\n", "usr")
@@ -55,6 +58,7 @@ usr = ""
 back_message = ""
 client = socket.socket()
 top = Tk()
+top.title("登录")
 L1 = Label(top, text="请输入用户名").grid(row=0, sticky='W')
 E1 = Entry(top, bd=5)
 E1.grid(row=0, column=1, sticky='E')

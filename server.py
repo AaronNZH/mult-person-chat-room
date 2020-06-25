@@ -57,7 +57,7 @@ def worker_process(server, dict_proxy, queue_proxy, list_proxy):
             # 接收数据
             dict_proxy[remote_address] = connection
             data = "{user}&用户 {user} 登录".format(user=usr)
-            time.sleep(1.2)
+            time.sleep(1.5)
             queue_proxy.put(data.encode())
             thread_pool.apply_async(worker_thread, args=(connection, usr, remote_address, list_proxy, dict_proxy, queue_proxy))
         else:
